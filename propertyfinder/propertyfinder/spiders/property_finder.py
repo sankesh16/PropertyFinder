@@ -87,14 +87,14 @@ class PropertyFinder(scrapy.Spider):
             "agent_logo": None
         }
 
-        # continue
         script_data = response.xpath('//script[@id="__NEXT_DATA__"]/text()').get()
         data = json.loads(script_data)
 
         property_data['property_description'] =  data['props']['initialReduxState']['property']['description']
-        # labelText = None
+        
         if 'labelText' in data['props']['initialReduxState']['property']:
             property_data['labelText'] = data['props']['initialReduxState']['property']['labelText']
+
         property_data['property_type'] = data['props']['initialReduxState']['property']['humanisedPropertyType']
         property_data['bedroom'] = data['props']['initialReduxState']['property']['bedrooms']
         property_data['bathroom'] = data['props']['initialReduxState']['property']['bathrooms']
@@ -127,3 +127,4 @@ class PropertyFinder(scrapy.Spider):
         property_data['agent_logo'] = "https://media.onthemarket.com" + data['props']['initialReduxState']['agent']['displayLogo']['url']
 
         yield property_data
+
