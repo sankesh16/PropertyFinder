@@ -4,7 +4,7 @@ import json
 
 
 class PropertyFinder(scrapy.Spider):
-    name = "prop"
+    name = "property_spider"
     start_urls = ['https://www.onthemarket.com/property/#locations']
 
     handle_httpstatus_list = [403]
