@@ -55,6 +55,7 @@ class PropertyFinder(scrapy.Spider):
 
     def detail_page(self, response):
         breakpoint()
+        # continue
         script_data = response.xpath('//script[@id="__NEXT_DATA__"]/text()').get()
         data = json.loads(script_data)
         print()
